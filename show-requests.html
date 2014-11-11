@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTTP</title>
+<!--
+<style type="text/css">body { min-width: 600px; } input { width: 100%; }</style>
+-->
+<style>
+ol { list-style-type: none; padding-left: 0; }
+</style>
+<script src="show-requests.js"></script>
+</head>
+<body>
+<div id="instructions">
+<p>Set the system property <strong>pp.jdbctiming=true</strong> (in e.g. pingpong.properties or local.properties), restart and click around to record requests.</p>
+</div>
+<div id="data">
+<input type="button" value="Clear" id="clear"/>
+<input type="button" value="Show" id="show"/>
+<ol id="list"/>
+</div>
+</body>
+</html>

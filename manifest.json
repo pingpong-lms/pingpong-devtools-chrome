@@ -1,0 +1,24 @@
+{
+	"name": "PING PONG Dev Tools",
+	"manifest_version": 2,
+	"version": "0.9",
+	"description": "Some tools for PING PONG developers.",
+	"icons": {"128": "icon-128.png"},
+	"permissions": [ "contextMenus", "tabs", "webNavigation", "notifications", "http://*/*", "https://*/*", "webRequest" ],
+  	"background": { "scripts": ["background.js"] },
+	"page_action": { "default_icon": "icon-switch-language.png", "default_title": "Switch language" },
+	"commands": {
+	    "switch-language": {
+		"suggested_key": {
+			"default": "Alt+S"
+		},
+		"description": "Switch PING PONG language"
+	    },
+	    "show-requests": {
+		"suggested_key": {
+			"default": "Alt+R"
+		},
+		"description": "Show HTTP requests."
+	    }
+	}
+}
