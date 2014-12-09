@@ -4,7 +4,7 @@
 	"version": "0.9",
 	"description": "Some tools for PING PONG developers.",
 	"icons": {"128": "icon-128.png"},
-	"permissions": [ "contextMenus", "tabs", "webNavigation", "notifications", "http://*/*", "https://*/*", "webRequest" ],
+	"permissions": [ "clipboardWrite", "contextMenus", "tabs", "webNavigation", "notifications", "http://*/*", "https://*/*", "webRequest" ],
   	"background": { "scripts": ["background.js"] },
 	"page_action": { "default_icon": "icon-switch-language.png", "default_title": "Switch language" },
 	"commands": {
