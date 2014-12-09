@@ -7,7 +7,8 @@
 <style type="text/css">
 #header { font-weight: bold; }
 .hidingsomething:after { content: '...'; }
-.hover {cursor:pointer;}
+.hover { cursor:pointer; }
+.hover:hover { background: #cfcfcf !important; }
 .prettyprint, .rawprint { display: block; margin: 0; border: none !important; }
 .writequery { background: #f3bcae !important; }
 </style>
@@ -15,14 +16,11 @@
 <script src="resources/prettify/lang-sql.js"></script>
 <script src="resources/jquery/jquery.js"></script>
 <script src="resources/tablesorter/jquery.tablesorter.js"></script>
-<!--
-<script src="resources/tablesorter/jquery.tablesorter.widgets.js"></script>
--->
 <script src="show-queries.js"></script>
 </head>
 <body>
-<p>Filter <input type="text" id="filter"/> <span id="filter_result"></span></p>
-<p>Queries executed generating <span id="header"></span>:</p>
+<p><label for="filter">Filter queries executed generating <span id="header"></span> </label><input type="text" id="filter"/><span id="filter_result"></span>:</p>
+<input type="hidden" id="clipboardHidden"/>
 <table id="table" class="tablesorter tablesorter-blue">
 <thead>
 <th>Sequence:</th>

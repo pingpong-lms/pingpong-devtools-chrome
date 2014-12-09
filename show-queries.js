@@ -16,6 +16,17 @@ window.onload = function() {
 		}
 	});
 
+	function copyQueryToClipboard(e) {
+		e.preventDefault();
+		var sqlElement = this.parentElement.querySelector('.lang-sql');
+		var text = sqlElement.textContent;
+		document.oncopy = function(event) {
+			event.clipboardData.setData("text/plain", text);
+			event.preventDefault();
+		};
+		document.execCommand("Copy", false, null);
+	}
+
 	var xmlUrl = location.search.substring(1);
 	var client = new XMLHttpRequest();
 	client.onreadystatechange = function() {
@@ -26,8 +37,13 @@ window.onload = function() {
 			for (var i = 0; i < queries.length; i++) {
 				var query = queries[i];
 				var tr = document.createElement('tr');
+
 				tr.appendChild(build('td', i+1));
-				tr.appendChild(build('td', query.getAttribute('time')));
+
+				var timingTd = build('td', query.getAttribute('time'));
+				timingTd.setAttribute('class', 'hover');
+				tr.appendChild(timingTd);
+				timingTd.addEventListener('click', copyQueryToClipboard);
 
 				var td = $('<td/>');
 				var code = $('<pre class="prettyprint lang-sql"/>');
@@ -82,7 +98,6 @@ window.onload = function() {
 				}
 				td.append(code);
 				$(tr).append(td);
-				//tr.appendChild(build('td', query.getAttribute('stackTrace')));
 
 				tbody.appendChild(tr);
 			}
