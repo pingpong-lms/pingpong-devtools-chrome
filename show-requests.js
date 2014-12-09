@@ -13,20 +13,10 @@ window.onload = function() {
 	var l = document.getElementById('list');
 	for (var i = latestRequests.length -1; i >= 0; i--) {
 		var item = document.createElement('li');
-		item.innerHTML = latestRequests[i][2] + ' <a href="' + latestRequests[i][1] + '">' + latestRequests[i][0] + '</a>';
+		var href = 'show-queries.html?' + latestRequests[i][1] + '#' + latestRequests[i][0];
+		item.innerHTML = latestRequests[i][2] + ' <a href="' + href + '">' + latestRequests[i][0] + '</a>';
 		l.appendChild(item);
 	}
-
-	document.getElementsByTagName('body')[0].addEventListener('click', function(e) {
-			var href = e.target.getAttribute('href');
-			if (href) {
-				chrome.tabs.getSelected(null, function(tab) {
-					chrome.tabs.create({index:tab.index, url:'show-queries.html?' + href + '#' + e.target.textContent});
-					//if (window.location.href.indexOf('pingpongtab') == -1) window.close();
-				});
-				e.preventDefault();
-			}
-	}, true);
 
 	document.getElementById('clear').onclick = function() {
 		var latestRequests = chrome.extension.getBackgroundPage().latestRequests;
@@ -36,10 +26,7 @@ window.onload = function() {
 		window.close();
 	};
 
-	document.getElementById('show').onclick = function() {
-		chrome.tabs.getSelected(null, function(tab) {
-			chrome.tabs.create({index:tab.index, url:'show-requests.html?pingpongtab=true'});
-			window.close();
-		});
+	document.getElementById('reload').onclick = function() {
+		window.location.reload();
 	};
 }
