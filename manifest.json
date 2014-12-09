@@ -1,7 +1,7 @@
 {
 	"name": "PING PONG Dev Tools",
 	"manifest_version": 2,
-	"version": "0.9",
+	"version": "0.10",
 	"description": "Some tools for PING PONG developers.",
 	"icons": {"128": "icon-128.png"},
 	"permissions": [ "clipboardWrite", "contextMenus", "tabs", "webNavigation", "notifications", "http://*/*", "https://*/*", "webRequest" ],
