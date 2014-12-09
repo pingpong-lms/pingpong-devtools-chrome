@@ -39,7 +39,7 @@ chrome.commands.onCommand.addListener(function(command) {
 			var details = { 'code': 'window.location = "/toggleShowKey.do"' };
 			chrome.tabs.executeScript(tab.id, details);
 		} else if (command == 'show-requests') {
-			chrome.tabs.create({index:tab.index, url:'show-requests.html?pingpongtab=true'});
+			chrome.tabs.create({index:tab.index, url:'show-requests.html'});
 		}
 	});
 });
@@ -71,7 +71,7 @@ chrome.contextMenus.create({
 
 chrome.notifications.onClicked.addListener(function(notificationId) {
 	chrome.tabs.getSelected(null, function(tab) {
-		chrome.tabs.create({index:tab.index, url:'show-requests.html?pingpongtab=true'});
+		chrome.tabs.create({index:tab.index, url:'show-requests.html'});
 	});
 });
 
